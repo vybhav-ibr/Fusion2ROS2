@@ -1,8 +1,94 @@
-# fusion2urdf ROS2
 
-This repository is initially forked from [syuntoku14/fusion2urdf](https://github.com/syuntoku14/fusion2urdf) and edited to export description package suited for ROS2 ament_python type build. Check out [syuntoku14/fusion2urdf](https://github.com/syuntoku14/fusion2urdf) for converting fusion360 model to robot description package of ROS1.
+# Fusion2ROS2 Exporter 
 
-This is an Add-In script for Fusion360 to export the 3D models to a robot description package which cocntains urdf, .stl, scripts, etc.. to make it executable in ROS2.
+This is an **Autodesk Fusion 360 Add-In** that allows you to export your 3D robot models into a **ROS 2-compatible package** with minimal effort.
+
+The exported package includes:
+- URDF files  
+- STL meshes  
+- Configuration files  
+- Launch files  
+
+It’s ready to be used with ROS 2 out of the box and supports simulation in both:
+- Gazebo Classic
+- Gazebo Sim (Ionic/Harmonic)
+
+---
+
+## Key Features
+
+### ROS 2 Controller Support
+- Supports both position and velocity controllers
+
+### Built-in Sensor Plugin Integration
+Easily add common Gazebo sensors by renaming your components with the correct suffix.
+
+| Sensor Type     | Suffix | Description              |
+|------------------|--------|---------------------------|
+| 2D Lidar         | `L2D`  | Line scan sensor          |
+| 3D Lidar         | `L3D`  | 3D Lidar                  |
+| RGB Camera       | `CAM`  | Standard color camera     |
+| RGB-D Camera     | `DCAM` | Depth camera              |
+| IMU              | `IMU`  | Inertial measurement unit |
+| GPS              | `GPS`  | GNSS receiver             |
+
+**Usage:**  
+To attach a sensor to a link, rename the component like this:  
+`linkname_SUFFIX` (e.g., `chassis_IMU`).
+
+---
+
+## Simulator Selection
+
+After selecting your destination folder during export, a dialog will prompt for the simulator key:
+
+- `GZC` → Gazebo Classic  
+- `GZS` → Gazebo Sim (Ionic)  
+
+Note: These keys are case-sensitive.
+
+---
+
+## Important Design Rules
+
+To ensure a successful export, follow these rules:
+
+1. Your design must include a grounded component named `base_link`  
+   - It cannot be the child of any joint
+2. Each robot link must be a separate component
+3. Nested components (assemblies within assemblies) are not supported
+4. Parallel linkages are not supported
+5. All joints must be explicitly named  
+   - Avoid Fusion's default names with spaces
+6. Each component can have only one sensor suffix
+7. `base_link` must not have a sensor suffix
+8. Components with sensors must:
+   - Be connected with a revolute joint
+   - Have joint limits: `min = 0`, `max = 0`, `rest = 0`
+9. Each component must have a unique name before suffixing
+10. Sensor suffixes are case-sensitive
+11. Avoid keyword duplication  
+    - Example: `IMU_IMU` is invalid
+
+## Additional Considerations
+
+1. When exporting with the `GZS` simulator, the **GPU Lidar plugin** is used. This is the most reliable option when using the **Ogre2 rendering engine** in Gazebo Sim.
+
+2. Your Fusion 360 design file name **should not start with an underscore or an uppercase letter**, as this does not follow ROS package naming conventions.
+
+3. Try to use **simple meshes** in your design. Complex meshes may be harder to render and can significantly impact simulation performance.
+
+4. If simulation-to-reality (sim2real) alignment is important, define a **custom physical material** in Fusion that reflects your robot's real properties. The default material in Gazebo is **steel**, which is quite dense and may not accurately reflect your robot’s behavior.
+
+5. To change sensor output topics in **Gazebo Sim**, do **not** modify the config file. Instead, change the topic name using the `remappings` argument of the **gz_ros_bridge** in your launch files.
+
+
+
+This repository is based on these repositories [dheena2k2/fusion2urdf-ros2](https://github.com/dheena2k2/fusion2urdf-ros2.git) and [syuntoku14/fusion2urdf](https://github.com/syuntoku14/fusion2urdf).
+
+
+
+
 
 ## Installation
 

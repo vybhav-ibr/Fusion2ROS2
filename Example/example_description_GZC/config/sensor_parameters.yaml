@@ -1,0 +1,154 @@
+L2D:
+  hokuyo_L2D:
+    always_on: true
+    visualize: true
+    pose: 0.0 0 0.0 0 0 0
+    update_rate: 15
+    horizontal:
+      samples: 667
+      resolution: 0.54
+      min_angle: 0.0
+      max_angle: 6.28
+    range:
+      min: 0.12
+      max: 20
+      resolution: 0.54
+    noise:
+      type: gaussian
+      mean: 0.0
+      stddev: 0.01
+    ros:
+      namespace: /
+      remapping: /out:=scan
+    output_type: sensor_msgs/LaserScan
+    frame_name: hokuyo_L2D_1
+L3D:
+  velodyne_L3D:
+    type: ray
+    pose: 0 0 0 0 0 0
+    visualize: true
+    update_rate: 10
+    horizontal:
+      samples: 440
+      resolution: 1
+      min_angle: -3.141592653589793
+      max_angle: 3.141592653589793
+    vertical:
+      samples: 32
+      resolution: 1.0
+      min_angle: -0.5
+      max_angle: 0.2617993877991494
+    range:
+      min: 0.1
+      max: 131.0
+      resolution: 0.001
+    noise:
+      type: gaussian
+      mean: 0.0
+      stddev: 0.0
+    ros:
+      namespace: /
+      remapping: /out:=scan
+    tf_prefix: 
+    frame_name: velodyne_L3D_1
+    organize_cloud: False
+    min_range: 0.1
+    max_range: 130.0
+    output_type: sensor_msgs/PointCloud2
+    gaussian_noise: 0.008
+CAM:
+  zed_CAM:
+    always_on: True
+    update_rate: 15.0
+    horizontal_fov: 1.46608
+    frame_name: zed_CAM_1
+    image:
+      width: 720
+      height: 640
+      format: R8G8B8
+    distortion:
+      k1: 0.0
+      k2: 0.0
+      k3: 0.0
+      p1: 0.0
+      p2: 0.0
+    ros:
+      namespace: /
+      remappings:
+        - ~/image_raw:=image_raw
+        - ~/camera_info:=camera_info
+    hack_baseline: 0.2
+DCAM:
+  kinect_DCAM:
+    always_on: True
+    update_rate: 15
+    pose: 0 0 0 0 0 0
+    horizontal_fov: 1.46608
+    image:
+      width: 720
+      height: 640
+      format: B8G8R8
+    distortion:
+      k1: 0.0
+      k2: 0.0
+      k3: 0.0
+      p1: 0.0
+      p2: 0.0
+    clip:
+      near: 0.05
+      far: 8
+    ros:
+      namespace: /
+      remappings:
+        - kinect_DCAM_1_DCAM/image_raw:=/image_raw
+        - kinect_DCAM_1_DCAM/image_depth:=/image_depth
+        - kinect_DCAM_1_DCAM/camera_info:=/camera_info
+        - kinect_DCAM_1_DCAM/camera_info_depth:=/depth_info
+        - kinect_DCAM_1_DCAM/points:=/points
+    frame_name: kinect_optical
+    hack_baseline: 0.07
+    min_depth: 0.05
+    max_depth: 8.0
+IMU:
+  bosch_IMU:
+    always_on: True
+    update_rate: 100
+    angular_velocity:
+      x:
+        noise:
+          mean: 0.0
+          stddev: 0.0002
+      y:
+        noise:
+          mean: 0.0
+          stddev: 0.0002
+      z:
+        noise:
+          mean: 0.0
+          stddev: 0.0002
+    linear_acceleration:
+      x:
+        noise:
+          mean: 0.0
+          stddev: 0.017
+      y:
+        noise:
+          mean: 0.0
+          stddev: 0.017
+      z:
+        noise:
+          mean: 0.0
+          stddev: 0.017
+    ros:
+      namespace: /
+      remapping: ~/out:=data
+    initial_orientation_as_reference: False
+GPS:
+  dummy_GPS:
+    always_on: True
+    update_rate: 1.0
+    ros:
+      namespace: /
+      remapping: ~/dummy_GPS_1_GPS/out:=gps
+    frame_name: dummy_GPS_1
+P3D:

@@ -1,0 +1,169 @@
+L2D:
+  hokuyo_L2D:
+    always_on: true
+    visualize: true
+    pose: 0.0 0 0.0 0 0 0
+    update_rate: 15
+    topic: hokuyo/scan
+    frame_name: hokuyo_L2D_1
+    horizontal:
+      samples: 900
+      resolution: 1
+      min_angle: -6.27
+      max_angle: 6.27
+    range:
+      min: 0.1
+      max: 60
+      resolution: 1
+    noise:
+      type: gaussian
+      mean: 0.0
+      stddev: 0.01
+L3D:
+  velodyne_L3D:
+    always_on: true
+    visualize: true
+    pose: 0.0 0 0.0 0 0 0
+    update_rate: 15
+    topic: velodyne
+    frame_name: velodyne_L3D_1
+    horizontal:
+      samples: 900
+      resolution: 1
+      min_angle: -6.27
+      max_angle: 6.27
+    vertical:
+      samples: 16
+      resolution: 1
+      min_angle: -0.78
+      max_angle: 0.78
+    range:
+      min: 0.1
+      max: 60
+      resolution: 1
+    noise:
+      type: gaussian
+      mean: 0.0
+      stddev: 0.01
+CAM:
+  zed_CAM:
+    always_on: True
+    update_rate: 15
+    pose: 0 0 0 0 0 0
+    horizontal_fov: 1.46608
+    frame_name: zed_CAM_1
+    image_topic: zed/image_raw
+    info_topic: zed/camera_info
+    intrinsics:
+      fx: 277
+      fy: 277
+      cx: 360
+      cy: 320
+      s: 0.0
+    distortion:
+      k1: 0.0
+      k2: 0.0
+      k3: 0.0
+      p1: 0.0
+      p2: 0.0
+    image:
+      width: 720
+      height: 640
+      format: B8G8R8
+    clip:
+      near: 0.05
+      far: 8
+    noise:
+      type: gaussian
+      mean: 0.01
+      stddev: 0.01
+DCAM:
+  kinect_DCAM:
+    always_on: True
+    update_rate: 15
+    pose: 0 0 0 0 0 0
+    horizontal_fov: 1.46608
+    frame_name: kinect_DCAM_1
+    image_topic: kinect
+    info_topic: kinect/camera_info
+    intrinsics:
+      fx: 277
+      fy: 277
+      cx: 360
+      cy: 320
+      s: 0.0
+    distortion:
+      k1: 0.0
+      k2: 0.0
+      k3: 0.0
+      p1: 0.0
+      p2: 0.0
+    image:
+      width: 720
+      height: 640
+      format: B8G8R8
+    clip:
+      near: 0.1
+      far: 20
+    depth_camera:
+      clip:
+        near: 0.1
+        far: 20
+    noise:
+      type: gaussian
+      mean: 0.01
+      stddev: 0.01
+IMU:
+  bosch_IMU:
+    always_on: True
+    update_rate: 100
+    topic: bosch/imu
+    frame_name: bosch_IMU_1
+    angular_velocity:
+      x:
+        noise:
+          mean: 0.0
+          stddev: 0.0002
+      y:
+        noise:
+          mean: 0.0
+          stddev: 0.0002
+      z:
+        noise:
+          mean: 0.0
+          stddev: 0.0002
+    linear_acceleration:
+      x:
+        noise:
+          mean: 0.0
+          stddev: 0.017
+      y:
+        noise:
+          mean: 0.0
+          stddev: 0.017
+      z:
+        noise:
+          mean: 0.0
+          stddev: 0.017
+GPS:
+  dummy_GPS:
+    always_on: True
+    update_rate: 1.0
+    topic: /gps
+    pos:
+      noise:
+        horizontal:
+          mean: 0.1
+          stddev: 0.0
+        vertical:
+          mean: 0.1
+          stddev: 0.0
+    vel:
+      noise:
+        horizontal:
+          mean: 0.1
+          stddev: 0.0
+        vertical:
+          mean: 0.1
+          stddev: 0.0
+P3D:

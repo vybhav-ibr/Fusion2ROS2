@@ -1,0 +1,130 @@
+[0.534s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/vybhav/Documents/Fusion2ROS2']
+[0.534s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/vybhav/Documents/Fusion2ROS2'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x72656600c580>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7265661cf3a0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7265661cf3a0>>, mixin_verb=('list',))
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.895s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.895s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/vybhav/Documents/Fusion2ROS2'
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extensions ['ignore', 'ignore_ament_install']
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'ignore'
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'ignore_ament_install'
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extensions ['colcon_pkg']
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'colcon_pkg'
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extensions ['colcon_meta']
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'colcon_meta'
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extensions ['ros']
+[0.895s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'ros'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extensions ['cmake', 'python']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'cmake'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'python'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extensions ['python_setup_py']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2) by extension 'python_setup_py'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extensions ['ignore', 'ignore_ament_install']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'ignore'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'ignore_ament_install'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extensions ['colcon_pkg']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'colcon_pkg'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extensions ['colcon_meta']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'colcon_meta'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extensions ['ros']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'ros'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extensions ['cmake', 'python']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'cmake'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'python'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extensions ['python_setup_py']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example) by extension 'python_setup_py'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extension 'ignore'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extension 'ignore_ament_install'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extensions ['colcon_pkg']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extension 'colcon_pkg'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extensions ['colcon_meta']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extension 'colcon_meta'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extensions ['ros']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description) by extension 'ros'
+[0.923s] DEBUG:colcon.colcon_core.package_identification:Package '/home/vybhav/Documents/Fusion2ROS2/Example/Basic_Robot_description' with type 'ros.catkin' and name 'Basic_Robot_description'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extensions ['ignore', 'ignore_ament_install']
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'ignore'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'ignore_ament_install'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extensions ['colcon_pkg']
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'colcon_pkg'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extensions ['colcon_meta']
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'colcon_meta'
+[0.923s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extensions ['ros']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'ros'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extensions ['cmake', 'python']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'cmake'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'python'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extensions ['python_setup_py']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2) by extension 'python_setup_py'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extensions ['ignore', 'ignore_ament_install']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'ignore'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'ignore_ament_install'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extensions ['colcon_pkg']
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'colcon_pkg'
+[0.924s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extensions ['colcon_meta']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'colcon_meta'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extensions ['ros']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'ros'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extensions ['cmake', 'python']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'cmake'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'python'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extensions ['python_setup_py']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core) by extension 'python_setup_py'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'ignore'
+[0.925s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'ignore_ament_install'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extensions ['colcon_pkg']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'colcon_pkg'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extensions ['colcon_meta']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'colcon_meta'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extensions ['ros']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'ros'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extensions ['cmake', 'python']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'cmake'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'python'
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extensions ['python_setup_py']
+[0.926s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/core/__pycache__) by extension 'python_setup_py'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extensions ['ignore', 'ignore_ament_install']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extension 'ignore'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extension 'ignore_ament_install'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extensions ['colcon_pkg']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extension 'colcon_pkg'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extensions ['colcon_meta']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extension 'colcon_meta'
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extensions ['ros']
+[0.927s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package) by extension 'ros'
+[0.928s] DEBUG:colcon.colcon_core.package_identification:Package '/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/package' with type 'ros.ament_python' and name 'PLACEHOLDER'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extensions ['ignore', 'ignore_ament_install']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'ignore'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'ignore_ament_install'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extensions ['colcon_pkg']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'colcon_pkg'
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extensions ['colcon_meta']
+[0.929s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'colcon_meta'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extensions ['ros']
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'ros'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extensions ['cmake', 'python']
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'cmake'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'python'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extensions ['python_setup_py']
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils) by extension 'python_setup_py'
+[0.930s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'ignore'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'ignore_ament_install'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extensions ['colcon_pkg']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'colcon_pkg'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extensions ['colcon_meta']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'colcon_meta'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extensions ['ros']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'ros'
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extensions ['cmake', 'python']
+[0.931s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'cmake'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'python'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extensions ['python_setup_py']
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/Fusion2ROS2/utils/__pycache__) by extension 'python_setup_py'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/log) by extensions ['ignore', 'ignore_ament_install']
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/log) by extension 'ignore'
+[0.932s] Level 1:colcon.colcon_core.package_identification:_identify(/home/vybhav/Documents/Fusion2ROS2/log) ignored
+[0.932s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

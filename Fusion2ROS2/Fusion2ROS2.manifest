@@ -1,0 +1,10 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"script",
+	"author":	"vybhav ilindra",
+	"description":	{
+		"":	"Export stl and URDF file"
+	},
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true
+}

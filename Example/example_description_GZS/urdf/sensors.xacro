@@ -1,0 +1,264 @@
+<?xml version="1.0" ?>
+<robot name="example" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="yaml_file" value="$(find example_description)/config/sensor_parameters.yaml" />
+<xacro:property name="params_dict" value="${xacro.load_yaml(yaml_file)}" />
+<xacro:property name="L2D_params" value="${params_dict['L2D']}" />
+<xacro:property name="L3D_params" value="${params_dict['L3D']}" />
+<xacro:property name="DCAM_params" value="${params_dict['DCAM']}" />
+<xacro:property name="CAM_params" value="${params_dict['CAM']}" />
+<xacro:property name="IMU_params" value="${params_dict['IMU']}" />
+<xacro:property name="GPS_params" value="${params_dict['GPS']}" />
+<xacro:property name="P3D_params" value="${params_dict['P3D']}" />
+<gazebo reference="kinect_DCAM_1">
+  <sensor name="kinect_DCAM" type="rgbd_camera">
+    <always_on>${DCAM_params['kinect_DCAM']['always_on']}</always_on>
+    <update_rate>${DCAM_params['kinect_DCAM']['update_rate']}</update_rate>
+    <topic>${DCAM_params['kinect_DCAM']['image_topic']}</topic>
+    <gz_frame_id>${DCAM_params['kinect_DCAM']['frame_name']}</gz_frame_id>
+    <camera name="kinect_DCAM">
+      <horizontal_fov>${DCAM_params['kinect_DCAM']['horizontal_fov']}</horizontal_fov>
+      <camera_info_topic>${DCAM_params['kinect_DCAM']['info_topic']}</camera_info_topic>
+      <lens>
+        <intrinsics>
+          <fx>${DCAM_params['kinect_DCAM']['intrinsics']['fx']}</fx>
+          <fy>${DCAM_params['kinect_DCAM']['intrinsics']['fy']}</fy>
+          <cx>${DCAM_params['kinect_DCAM']['intrinsics']['cx']}</cx>
+          <cy>${DCAM_params['kinect_DCAM']['intrinsics']['cy']}</cy>
+          <s>${DCAM_params['kinect_DCAM']['intrinsics']['s']}</s>
+        </intrinsics>
+      </lens>
+      <distortion>
+        <k1>${DCAM_params['kinect_DCAM']['distortion']['k1']}</k1>
+        <k2>${DCAM_params['kinect_DCAM']['distortion']['k2']}</k2>
+        <k3>${DCAM_params['kinect_DCAM']['distortion']['k3']}</k3>
+        <p1>${DCAM_params['kinect_DCAM']['distortion']['p1']}</p1>
+        <p2>${DCAM_params['kinect_DCAM']['distortion']['p2']}</p2>
+      </distortion>
+      <image>
+        <width>${DCAM_params['kinect_DCAM']['image']['width']}</width>
+        <height>${DCAM_params['kinect_DCAM']['image']['height']}</height>
+        <format>${DCAM_params['kinect_DCAM']['image']['format']}</format>
+      </image>
+      <clip>
+        <near>${DCAM_params['kinect_DCAM']['clip']['near']}</near>
+        <far>${DCAM_params['kinect_DCAM']['clip']['far']}</far>
+      </clip>
+      <depth_camera>
+        <clip>
+          <near>${DCAM_params['kinect_DCAM']['depth_camera']['clip']['near']}</near>
+          <far>${DCAM_params['kinect_DCAM']['depth_camera']['clip']['far']}</far>
+        </clip>
+      </depth_camera>
+      <noise>
+        <type>${DCAM_params['kinect_DCAM']['noise']['type']}</type>
+        <mean>${DCAM_params['kinect_DCAM']['noise']['mean']}</mean>
+        <stddev>${DCAM_params['kinect_DCAM']['noise']['stddev']}</stddev>
+      </noise>
+    </camera>
+  </sensor>
+</gazebo>
+
+<gazebo reference="zed_CAM_1">
+  <sensor name="zed_CAM" type="camera">
+    <always_on>${CAM_params['zed_CAM']['always_on']}</always_on>
+    <update_rate>${CAM_params['zed_CAM']['update_rate']}</update_rate>
+    <pose>${CAM_params['zed_CAM']['pose']}</pose>
+    <topic>${CAM_params['zed_CAM']['image_topic']}</topic>
+    <gz_frame_id>${CAM_params['zed_CAM']['frame_name']}</gz_frame_id>
+    <camera name="zed_CAM">
+      <horizontal_fov>${CAM_params['zed_CAM']['horizontal_fov']}</horizontal_fov>
+      <camera_info_topic>${CAM_params['zed_CAM']['info_topic']}</camera_info_topic>
+      <lens>
+        <intrinsics>
+          <fx>${CAM_params['zed_CAM']['intrinsics']['fx']}</fx>
+          <fy>${CAM_params['zed_CAM']['intrinsics']['fy']}</fy>
+          <cx>${CAM_params['zed_CAM']['intrinsics']['cx']}</cx>
+          <cy>${CAM_params['zed_CAM']['intrinsics']['cy']}</cy>
+          <s>${CAM_params['zed_CAM']['intrinsics']['s']}</s>
+        </intrinsics>
+      </lens>
+      <distortion>
+        <k1>${CAM_params['zed_CAM']['distortion']['k1']}</k1>
+        <k2>${CAM_params['zed_CAM']['distortion']['k2']}</k2>
+        <k3>${CAM_params['zed_CAM']['distortion']['k3']}</k3>
+        <p1>${CAM_params['zed_CAM']['distortion']['p1']}</p1>
+        <p2>${CAM_params['zed_CAM']['distortion']['p2']}</p2>
+      </distortion>
+      <image>
+        <width>${CAM_params['zed_CAM']['image']['width']}</width>
+        <height>${CAM_params['zed_CAM']['image']['height']}</height>
+        <format>${CAM_params['zed_CAM']['image']['format']}</format>
+      </image>
+      <clip>
+        <near>${CAM_params['zed_CAM']['clip']['near']}</near>
+        <far>${CAM_params['zed_CAM']['clip']['far']}</far>
+      </clip>
+      <noise>
+        <type>${CAM_params['zed_CAM']['noise']['type']}</type>
+        <mean>${CAM_params['zed_CAM']['noise']['mean']}</mean>
+        <stddev>${CAM_params['zed_CAM']['noise']['stddev']}</stddev>
+      </noise>
+    </camera>
+  </sensor>
+</gazebo>
+
+<gazebo reference="dummy_GPS_1">
+  <sensor name="dummy_GPS" type="navsat">
+    <always_on>${GPS_params['dummy_GPS']['always_on']}</always_on>
+    <update_rate>${GPS_params['dummy_GPS']['update_rate']}</update_rate>
+    <position_sensing>
+      <horizontal>
+        <noise type="gaussian">
+          <mean>${GPS_params['dummy_GPS']['pos']['noise']['horizontal']['mean']}</mean>
+          <stddev>${GPS_params['dummy_GPS']['pos']['noise']['horizontal']['stddev']}</stddev>
+        </noise>
+      </horizontal>
+      <vertical>
+        <noise type="gaussian">
+          <mean>${GPS_params['dummy_GPS']['pos']['noise']['vertical']['mean']}</mean>
+          <stddev>${GPS_params['dummy_GPS']['pos']['noise']['vertical']['stddev']}</stddev>
+        </noise>
+      </vertical>
+    </position_sensing>
+    <velocity_sensing>
+      <horizontal>
+        <noise type="gaussian">
+          <mean>${GPS_params['dummy_GPS']['vel']['noise']['horizontal']['mean']}</mean>
+          <stddev>${GPS_params['dummy_GPS']['vel']['noise']['horizontal']['stddev']}</stddev>
+        </noise>
+      </horizontal>
+      <vertical>
+        <noise type="gaussian">
+          <mean>${GPS_params['dummy_GPS']['vel']['noise']['vertical']['mean']}</mean>
+          <stddev>${GPS_params['dummy_GPS']['vel']['noise']['vertical']['stddev']}</stddev>
+        </noise>
+      </vertical>
+    </velocity_sensing>
+  </sensor>
+</gazebo>
+
+<gazebo reference="bosch_IMU_1">
+  <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+  <sensor name="bosch_IMU" type="imu">
+    <always_on>${IMU_params['bosch_IMU']['always_on']}</always_on>
+    <update_rate>${IMU_params['bosch_IMU']['update_rate']}</update_rate>
+    <topic>${IMU_params['bosch_IMU']['topic']}</topic>
+    <imu>
+      <angular_velocity>
+        <x>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['angular_velocity']['x']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['angular_velocity']['x']['noise']['stddev']}</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['angular_velocity']['y']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['angular_velocity']['y']['noise']['stddev']}</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['angular_velocity']['z']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['angular_velocity']['z']['noise']['stddev']}</stddev>
+          </noise>
+        </z>
+      </angular_velocity>
+      <linear_acceleration>
+        <x>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['linear_acceleration']['x']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['linear_acceleration']['x']['noise']['stddev']}</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['linear_acceleration']['y']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['linear_acceleration']['y']['noise']['stddev']}</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['linear_acceleration']['z']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['linear_acceleration']['z']['noise']['stddev']}</stddev>
+          </noise>
+        </z>
+      </linear_acceleration>
+    </imu>
+  </sensor>
+</gazebo>
+
+<gazebo reference="hokuyo_L2D_1">
+  <sensor name="hokuyo_L2D" type="gpu_lidar">
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>${L2D_params['hokuyo_L2D']['horizontal']['samples']}</samples>
+          <resolution>${L2D_params['hokuyo_L2D']['horizontal']['resolution']}</resolution>
+          <min_angle>${L2D_params['hokuyo_L2D']['horizontal']['min_angle']}</min_angle>
+          <max_angle>${L2D_params['hokuyo_L2D']['horizontal']['max_angle']}</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>${L2D_params['hokuyo_L2D']['range']['min']}</min>
+        <max>${L2D_params['hokuyo_L2D']['range']['max']}</max>
+        <resolution>${L2D_params['hokuyo_L2D']['range']['resolution']}</resolution>
+      </range>
+      <noise>
+        <type>${L2D_params['hokuyo_L2D']['noise']['type']}</type>
+        <mean>${L2D_params['hokuyo_L2D']['noise']['mean']}</mean>
+        <stddev>${L2D_params['hokuyo_L2D']['noise']['stddev']}</stddev>
+      </noise>
+    </lidar>
+    <always_on>${L2D_params['hokuyo_L2D']['always_on']}</always_on>
+    <visualize>${L2D_params['hokuyo_L2D']['visualize']}</visualize>
+    <update_rate>${L2D_params['hokuyo_L2D']['update_rate']}</update_rate>
+    <topic>${L2D_params['hokuyo_L2D']['topic']}</topic>
+    <gz_frame_id>${L2D_params['hokuyo_L2D']['frame_name']}</gz_frame_id>
+  </sensor>
+</gazebo>
+
+<gazebo reference="velodyne_L3D_1">
+  <sensor name="velodyne_L3D" type="gpu_lidar">
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>${L3D_params['velodyne_L3D']['horizontal']['samples']}</samples>
+          <resolution>${L3D_params['velodyne_L3D']['horizontal']['resolution']}</resolution>
+          <min_angle>${L3D_params['velodyne_L3D']['horizontal']['min_angle']}</min_angle>
+          <max_angle>${L3D_params['velodyne_L3D']['horizontal']['max_angle']}</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>${L3D_params['velodyne_L3D']['horizontal']['samples']}</samples>
+          <resolution>${L3D_params['velodyne_L3D']['vertical']['resolution']}</resolution>
+          <min_angle>${L3D_params['velodyne_L3D']['vertical']['min_angle']}</min_angle>
+          <max_angle>${L3D_params['velodyne_L3D']['vertical']['max_angle']}</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>${L3D_params['velodyne_L3D']['range']['min']}</min>
+        <max>${L3D_params['velodyne_L3D']['range']['max']}</max>
+        <resolution>${L3D_params['velodyne_L3D']['range']['resolution']}</resolution>
+      </range>
+      <noise>
+        <type>${L3D_params['velodyne_L3D']['noise']['type']}</type>
+        <mean>${L3D_params['velodyne_L3D']['noise']['mean']}</mean>
+        <stddev>${L3D_params['velodyne_L3D']['noise']['stddev']}</stddev>
+      </noise>
+    </ray>
+    <always_on>${L3D_params['velodyne_L3D']['always_on']}</always_on>
+    <visualize>${L3D_params['velodyne_L3D']['visualize']}</visualize>
+    <update_rate>${L3D_params['velodyne_L3D']['update_rate']}</update_rate>
+    <topic>${L3D_params['velodyne_L3D']['topic']}</topic>
+    <gz_frame_id>${L3D_params['velodyne_L3D']['frame_name']}</gz_frame_id>
+  </sensor>
+</gazebo>
+
+</robot>

@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<robot name="example" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="kinect_DCAM_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="zed_CAM_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="dummy_GPS_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="bosch_IMU_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_two_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_one_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="link_zero_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="hokuyo_L2D_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="velodyne_L3D_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="end_effector_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<ros2_control name="GazeboSystem" type="system">
+<hardware>
+   <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+</hardware>
+<joint name="cam_joint"/>
+   <state_interface name="position"/>
+   <state_interface name="velocity"/>
+</joint>
+
+<joint name="dcam_joint"/>
+   <state_interface name="position"/>
+   <state_interface name="velocity"/>
+</joint>
+
+<joint name="gps_joint"/>
+   <state_interface name="position"/>
+   <state_interface name="velocity"/>
+</joint>
+
+<joint name="imu_joint"/>
+   <state_interface name="position"/>
+   <state_interface name="velocity"/>
+</joint>
+
+<joint name="link_two_joint">
+  <command_interface name="position">
+    <param name="min">0.0</param>
+    <param name="max">6.283185</param>
+  </command_interface>
+  <command_interface name="velocity">
+    <param name="min">10</param>
+    <param name="max">100</param>
+  </command_interface>
+  <state_interface name="position">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="velocity">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="effort"/>
+</joint>
+
+<joint name="link_one_joint">
+  <command_interface name="position">
+    <param name="min">-1.570796</param>
+    <param name="max">1.570796</param>
+  </command_interface>
+  <command_interface name="velocity">
+    <param name="min">10</param>
+    <param name="max">100</param>
+  </command_interface>
+  <state_interface name="position">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="velocity">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="effort"/>
+</joint>
+
+<joint name="link_zero_joint">
+  <command_interface name="position">
+    <param name="min">0.0</param>
+    <param name="max">3.141593</param>
+  </command_interface>
+  <command_interface name="velocity">
+    <param name="min">10</param>
+    <param name="max">100</param>
+  </command_interface>
+  <state_interface name="position">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="velocity">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="effort"/>
+</joint>
+
+<joint name="l2d_joint"/>
+   <state_interface name="position"/>
+   <state_interface name="velocity"/>
+</joint>
+
+<joint name="l3d_joint"/>
+   <state_interface name="position"/>
+   <state_interface name="velocity"/>
+</joint>
+
+<joint name="end_effector_joint">
+  <command_interface name="position">
+    <param name="min">-0.2</param>
+    <param name="max">0.2</param>
+  </command_interface>
+  <command_interface name="velocity">
+    <param name="min">10</param>
+    <param name="max">100</param>
+  </command_interface>
+  <state_interface name="position">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="velocity">
+    <param name="initial_value">0.0</param>
+  </state_interface>
+  <state_interface name="effort"/>
+</joint>
+
+</ros2_control>
+<gazebo>
+<plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+   <parameters>$(find example_description)/config/ros2_controller.yaml</parameters>
+</plugin>
+</gazebo>
+</robot>

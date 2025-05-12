@@ -1,0 +1,240 @@
+<?xml version="1.0" ?>
+<robot name="example" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="yaml_file" value="$(find example_description)/config/sensor_parameters.yaml" />
+<xacro:property name="params_dict" value="${xacro.load_yaml(yaml_file)}" />
+<xacro:property name="L2D_params" value="${params_dict['L2D']}" />
+<xacro:property name="L3D_params" value="${params_dict['L3D']}" />
+<xacro:property name="DCAM_params" value="${params_dict['DCAM']}" />
+<xacro:property name="CAM_params" value="${params_dict['CAM']}" />
+<xacro:property name="IMU_params" value="${params_dict['IMU']}" />
+<xacro:property name="GPS_params" value="${params_dict['GPS']}" />
+<xacro:property name="P3D_params" value="${params_dict['P3D']}" />
+<gazebo reference="kinect_DCAM_1">
+  <sensor name="kinect" type="depth">
+    <always_on>${DCAM_params['kinect_DCAM']['always_on']}</always_on>
+    <update_rate>${DCAM_params['kinect_DCAM']['update_rate']}</update_rate>
+    <pose>${DCAM_params['kinect_DCAM']['pose']}</pose>
+    <camera name="kinect_DCAM">
+      <horizontal_fov>${DCAM_params['kinect_DCAM']['horizontal_fov']}</horizontal_fov>
+      <image>
+        <width>${DCAM_params['kinect_DCAM']['image']['width']}</width>
+        <height>${DCAM_params['kinect_DCAM']['image']['height']}</height>
+        <format>${DCAM_params['kinect_DCAM']['image']['format']}</format>
+      </image>
+      <clip>
+        <near>${DCAM_params['kinect_DCAM']['clip']['near']}</near>
+        <far>${DCAM_params['kinect_DCAM']['clip']['far']}</far>
+      </clip>
+      <distortion>
+        <k1>${DCAM_params['kinect_DCAM']['distortion']['k1']}</k1>
+        <k2>${DCAM_params['kinect_DCAM']['distortion']['k2']}</k2>
+        <k3>${DCAM_params['kinect_DCAM']['distortion']['k3']}</k3>
+        <p1>${DCAM_params['kinect_DCAM']['distortion']['p1']}</p1>
+        <p2>${DCAM_params['kinect_DCAM']['distortion']['p2']}</p2>
+      </distortion>
+    </camera>
+    <plugin name="kinect" filename="libgazebo_ros_camera.so">
+      <ros>
+        <namespace>${DCAM_params['kinect_DCAM']['ros']['namespace']}</namespace>
+        <remapping>${DCAM_params['kinect_DCAM']['ros']['remappings'][0]}</remapping>
+        <remapping>${DCAM_params['kinect_DCAM']['ros']['remappings'][1]}</remapping>
+        <remapping>${DCAM_params['kinect_DCAM']['ros']['remappings'][2]}</remapping>
+        <remapping>${DCAM_params['kinect_DCAM']['ros']['remappings'][3]}</remapping>
+        <remapping>${DCAM_params['kinect_DCAM']['ros']['remappings'][4]}</remapping>
+      </ros>
+      <camera_name>kinect_DCAM</camera_name>
+      <frame_name>${DCAM_params['kinect_DCAM']['frame_name']}</frame_name>
+      <hack_baseline>${DCAM_params['kinect_DCAM']['hack_baseline']}</hack_baseline>
+      <min_depth>${DCAM_params['kinect_DCAM']['min_depth']}</min_depth>
+      <max_depth>${DCAM_params['kinect_DCAM']['max_depth']}</max_depth>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="zed_CAM_1">
+  <sensor type="camera" name="zed">
+    <always_on>${CAM_params['zed_CAM']['always_on']}</always_on>
+    <update_rate>${CAM_params['zed_CAM']['update_rate']}</update_rate>
+    <camera name="zed">
+      <horizontal_fov>${CAM_params['zed_CAM']['horizontal_fov']}</horizontal_fov>
+      <image>
+        <width>${CAM_params['zed_CAM']['image']['width']}</width>
+        <height>${CAM_params['zed_CAM']['image']['height']}</height>
+        <format>${CAM_params['zed_CAM']['image']['format']}</format>
+      </image>
+      <distortion>
+        <k1>${CAM_params['zed_CAM']['distortion']['k1']}</k1>
+        <k2>${CAM_params['zed_CAM']['distortion']['k2']}</k2>
+        <k3>${CAM_params['zed_CAM']['distortion']['k3']}</k3>
+        <p1>${CAM_params['zed_CAM']['distortion']['p1']}</p1>
+        <p2>${CAM_params['zed_CAM']['distortion']['p2']}</p2>
+      </distortion>
+    </camera>
+    <plugin name="zed" filename="libgazebo_ros_camera.so">
+      <ros>
+        <namesoace>${CAM_params['zed_CAM']['ros']['namespace']}</namesoace>
+        <remapping>${CAM_params['zed_CAM']['ros']['remappings'][0]}</remapping>
+        <remapping>${CAM_params['zed_CAM']['ros']['remappings'][1]}</remapping>
+      </ros>
+      <camera_name>zed_CAM</camera_name>
+      <frame_name>${CAM_params['zed_CAM']['frame_name']}</frame_name>
+      <hack_baseline>${CAM_params['zed_CAM']['hack_baseline']}</hack_baseline>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="dummy_GPS_1">
+  <sensor name="dummy_GPS" type="gps">
+    <always_on>${GPS_params['dummy_GPS']['always_on']}</always_on>
+    <update_rate>${GPS_params['dummy_GPS']['update_rate']}</update_rate>
+    <plugin name="dummy" filename="libgazebo_ros_gps_sensor.so">
+      <ros>
+        <namespace>${GPS_params['dummy_GPS']['ros']['namespace']}</namespace>
+        <remapping>${GPS_params['dummy_GPS']['ros']['remapping']}</remapping>
+      </ros>
+      <frame_name>${GPS_params['dummy_GPS']['frame_name']}</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="bosch_IMU_1">
+  <sensor name="bosch_IMU" type="imu">
+    <always_on>${IMU_params['bosch_IMU']['always_on']}</always_on>
+    <update_rate>${IMU_params['bosch_IMU']['update_rate']}</update_rate>
+    <imu>
+      <angular_velocity>
+        <x>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['angular_velocity']['x']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['angular_velocity']['x']['noise']['stddev']}</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['angular_velocity']['y']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['angular_velocity']['y']['noise']['stddev']}</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['angular_velocity']['z']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['angular_velocity']['z']['noise']['stddev']}</stddev>
+          </noise>
+        </z>
+      </angular_velocity>
+      <linear_acceleration>
+        <x>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['linear_acceleration']['x']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['linear_acceleration']['x']['noise']['stddev']}</stddev>
+          </noise>
+        </x>
+        <y>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['linear_acceleration']['y']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['linear_acceleration']['y']['noise']['stddev']}</stddev>
+          </noise>
+        </y>
+        <z>
+          <noise type="gaussian">
+            <mean>${IMU_params['bosch_IMU']['linear_acceleration']['z']['noise']['mean']}</mean>
+            <stddev>${IMU_params['bosch_IMU']['linear_acceleration']['z']['noise']['stddev']}</stddev>
+          </noise>
+        </z>
+      </linear_acceleration>
+    </imu>
+    <plugin name="bosch" filename="libgazebo_ros_imu_sensor.so">
+      <ros>
+        <namespace>${IMU_params['bosch_IMU']['ros']['namespace']}</namespace>
+        <remapping>${IMU_params['bosch_IMU']['ros']['remapping']}</remapping>
+      </ros>
+      <initial_orientation_as_reference>${IMU_params['bosch_IMU']['initial_orientation_as_reference']}</initial_orientation_as_reference>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="hokuyo_L2D_1">
+  <sensor name="hokuyo_L2D" type="ray">
+    <always_on>${L2D_params['hokuyo_L2D']['always_on']}</always_on>
+    <visualize>${L2D_params['hokuyo_L2D']['visualize']}</visualize>
+    <pose>${L2D_params['hokuyo_L2D']['pose']}</pose>
+    <update_rate>${L2D_params['hokuyo_L2D']['update_rate']}</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>${L2D_params['hokuyo_L2D']['horizontal']['samples']}</samples>
+          <resolution>${L2D_params['hokuyo_L2D']['horizontal']['resolution']}</resolution>
+          <min_angle>${L2D_params['hokuyo_L2D']['horizontal']['min_angle']}</min_angle>
+          <max_angle>${L2D_params['hokuyo_L2D']['horizontal']['max_angle']}</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>${L2D_params['hokuyo_L2D']['range']['min']}</min>
+        <max>${L2D_params['hokuyo_L2D']['range']['max']}</max>
+        <resolution>${L2D_params['hokuyo_L2D']['range']['resolution']}</resolution>
+      </range>
+      <noise>
+        <type>${L2D_params['hokuyo_L2D']['noise']['type']}</type>
+        <mean>${L2D_params['hokuyo_L2D']['noise']['mean']}</mean>
+        <stddev>${L2D_params['hokuyo_L2D']['noise']['stddev']}</stddev>
+      </noise>
+    </ray>
+    <plugin name="hokuyo" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>${L2D_params['hokuyo_L2D']['ros']['namespace']}</namespace>
+        <remapping>${L2D_params['hokuyo_L2D']['ros']['remapping']}</remapping>
+      </ros>
+      <output_type>${L2D_params['hokuyo_L2D']['output_type']}</output_type>
+      <frame_name>${L2D_params['hokuyo_L2D']['frame_name']}</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="velodyne_L3D_1">
+  <sensor name="velodyne_L3D" type="ray">
+    <pose>${L3D_params['velodyne_L3D']['pose']}</pose>
+    <visualize>${L3D_params['velodyne_L3D']['visualize']}</visualize>
+    <update_rate>${L3D_params['velodyne_L3D']['update_rate']}</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>${L3D_params['velodyne_L3D']['horizontal']['samples']}</samples>
+          <resolution>${L3D_params['velodyne_L3D']['horizontal']['resolution']}</resolution>
+          <min_angle>${L3D_params['velodyne_L3D']['horizontal']['min_angle']}</min_angle>
+          <max_angle>${L3D_params['velodyne_L3D']['horizontal']['max_angle']}</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>${L3D_params['velodyne_L3D']['vertical']['samples']}</samples>
+          <resolution>${L3D_params['velodyne_L3D']['vertical']['resolution']}</resolution>
+          <min_angle>${L3D_params['velodyne_L3D']['vertical']['min_angle']}</min_angle>
+          <max_angle>${L3D_params['velodyne_L3D']['vertical']['max_angle']}</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>${L3D_params['velodyne_L3D']['range']['min']}</min>
+        <max>${L3D_params['velodyne_L3D']['range']['max']}</max>
+        <resolution>${L3D_params['velodyne_L3D']['range']['resolution']}</resolution>
+      </range>
+      <noise>
+        <type>${L3D_params['velodyne_L3D']['noise']['type']}</type>
+        <mean>${L3D_params['velodyne_L3D']['noise']['mean']}</mean>
+        <stddev>${L3D_params['velodyne_L3D']['noise']['stddev']}</stddev>
+      </noise>
+    </ray>
+    <plugin name="velodyne" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>${L3D_params['velodyne_L3D']['ros']['namespace']}</namespace>
+        <remapping>${L3D_params['velodyne_L3D']['ros']['remapping']}</remapping>
+      </ros>
+      <tf_prefix>${L3D_params['velodyne_L3D']['tf_prefix']}</tf_prefix>
+      <frame_name>${L3D_params['velodyne_L3D']['frame_name']}</frame_name>
+      <organize_cloud>${L3D_params['velodyne_L3D']['organize_cloud']}</organize_cloud>
+      <min_range>${L3D_params['velodyne_L3D']['min_range']}</min_range>
+      <max_range>${L3D_params['velodyne_L3D']['max_range']}</max_range>
+      <gaussian_noise>${L3D_params['velodyne_L3D']['gaussian_noise']}</gaussian_noise>
+    </plugin>
+  </sensor>
+</gazebo>
+
+</robot>

@@ -194,7 +194,7 @@ The ankle joint below has 4 spherical joints and only two of them were defined a
 
 ## In some cases, before export Turn off "Capture design history"
 
-For preplanning the component placement when working/assembling your own robot. It is recomended to have separate names for components and save individual components in a separate folder, create a back up and, break link with the original. This folder can be later deleted after genearating the urdf. See [Issue #51](https://github.com/syuntoku14/fusion2urdf/issues/51) for problem with "copy-paste" vs "copy-paste new".
+For preplanning the component placement when working/assembling your own robot. It is recommended to have separate names for components and save individual components in a separate folder, create a back up and, break link with the original. This folder can be later deleted after genearating the urdf. See [Issue #51](https://github.com/syuntoku14/fusion2urdf/issues/51) for problem with "copy-paste" vs "copy-paste new".
 
 
 
